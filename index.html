@@ -83,10 +83,17 @@
 
 <script>
     const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
 
     searchButton.addEventListener('click', function() {
-        // Add your search functionality here
-        alert('Search button clicked!'); // Replace with your actual search functionality
+        const userInput = searchInput.value.trim();
+        if (userInput !== '') {
+            // Construct the URL and redirect
+            const url = userInput.startsWith('https://') ? userInput : 'https://' + userInput;
+            window.location.href = url;
+        } else {
+            alert('Please enter a valid search term.');
+        }
     });
 </script>
 
