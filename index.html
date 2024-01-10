@@ -29,38 +29,33 @@
 
         #searchBox {
             background-color: #d0d0d0; /* Lighter grey search box background */
-            /* ... (other styles) */
+            display: flex;
+            align-items: center;
+            padding: 10px;
         }
 
         #searchInput {
-            /* ... (other styles) */
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #808080;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
         }
 
         #searchButton {
             background-color: #808080; /* Darker grey search button */
             color: #ffffff; /* White text color */
-            /* ... (other styles) */
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         #gifContainer {
-            /* ... (other styles) */
-        }
-
-        #registrationButton {
-            background-color: #808080; /* Darker grey registration button */
-            color: #ffffff; /* White text color */
-            /* ... (other styles) */
-        }
-
-        #registrationForm {
-            /* ... (other styles) */
-        }
-
-        #registrationForm label,
-        #registrationForm input,
-        #registrationForm button {
-            color: #000; /* Black text color */
-            /* ... (other styles) */
+            max-width: 300px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -86,46 +81,12 @@
     </div>
 </div>
 
-<!-- Registration Section -->
-<div id="registrationContainer">
-    <button id="registrationButton">Register</button>
-    <form id="registrationForm">
-        <h2>Sign Up</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" required>
-        <button type="submit">Sign Up</button>
-    </form>
-</div>
-
 <script>
-    const registrationButton = document.getElementById('registrationButton');
-    const registrationForm = document.getElementById('registrationForm');
+    const searchButton = document.getElementById('searchButton');
 
-    registrationButton.addEventListener('click', function() {
-        registrationForm.style.display = 'flex';
-    });
-
-    registrationForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // Call your backend API to handle user registration
-        fetch('http://localhost:3000/register', {  // Replace with your backend URL
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message); // You can replace this with a more user-friendly UI
-        })
-        .catch(error => console.error('Error:', error));
+    searchButton.addEventListener('click', function() {
+        // Add your search functionality here
+        alert('Search button clicked!'); // Replace with your actual search functionality
     });
 </script>
 
